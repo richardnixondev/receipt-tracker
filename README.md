@@ -1,60 +1,12 @@
-# 🧾 Receipt Tracker — Storage & Expense Analysis System
+# React + Vite
 
-**Goal:**  
-Allow users to upload their **real shopping receipts** (digital or scanned), store them securely, and **analyze their spending** based on the extracted data.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 🔧 Core Features
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-### 📤 Receipt Upload
-- Upload **PDFs or images (JPG/PNG)** or manually input data  
-- File storage in **database** or **cloud storage** (e.g., Cloudinary / AWS S3)
+## Expanding the ESLint configuration
 
-### 🧠 Data Extraction (OCR)
-- Uses **Optical Character Recognition (OCR)** to extract:
-  - 🏪 Store name  
-  - 📅 Purchase date  
-  - 🛒 Purchased items  
-  - 💲 Prices and totals
-
-> Technologies: [Tesseract.js](https://github.com/naptha/tesseract.js) or [OCR.Space API](https://ocr.space/OCRAPI)
-
-### 📊 Financial Dashboard
-- Track **spending per store, category, or month**
-- **Interactive charts** with React + [Chart.js](https://www.chartjs.org/) or [Recharts](https://recharts.org/)
-- Filters by **date range** and **purchase type**
-
-### 👥 User Authentication
-- **JWT-based** login & registration system  
-- Password hashing with **bcrypt**
-
-### ✍️ Tags & Notes
-- Users can assign **custom tags** to receipts:  
-  e.g., `food`, `entertainment`, `travel`, etc.
-
----
-
-## 🚀 Tech Stack — MERN
-
-| Layer         | Tech                                      |
-|---------------|-------------------------------------------|
-| 🗃️ Database    | **MongoDB** - stores receipts, users, data |
-| 🔌 Backend     | **Node.js + Express** - API, OCR, auth    |
-| 🎨 Frontend    | **React + Vite** - modern and fast UI     |
-| 🔍 OCR         | **Tesseract.js** or **OCR API**           |
-
----
-
-
-## 💡 Future Ideas
-- 💳 Automatic categorization of spending
-- 📦 Receipt itemization
-- 📁 Export to PDF/CSV
-- 📱 Mobile support with React Native or PWA
-
----
-
-## 📌 License
-
-MIT — Feel free to use and adapt for your own projects!
+If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
