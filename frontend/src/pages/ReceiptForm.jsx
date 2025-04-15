@@ -3,12 +3,25 @@ import axios from 'axios';
 
 export function ReceiptForm() {
     const [items, setItems] = useState([]);
-    const [name, setName] = useState('');
+    const [ItemName, setItemName] = useState('');
     const [description, setDescription] = useState('');
+    //ItemName
+    //ItemPrice
+   // Currency
+   // StoreName
+   // StoreAddress
+   // ShoppingDate
+   // ShoppingId
+   // ShoppingTotal
+
+
+
+
+
+
+
     const [editingId, setEditingId] = useState(null);
-  
-    //const API_URL = 'http://localhost:5000/api/items';
-    const API_URL = '/api/items'; // Remove the "http://localhost:5000" part
+    const API_URL = '/api/items';
   
     useEffect(() => {
       fetchItems();
@@ -29,7 +42,7 @@ export function ReceiptForm() {
       if (editingId) {
         // Atualizar item existente
         try {
-          await axios.put(`${API_URL}/${editingId}`, { name, description });
+          await axios.put(`${API_URL}/${editingId}`, { ItemName, description });
           fetchItems();
           resetForm();
         } catch (error) {
@@ -38,7 +51,7 @@ export function ReceiptForm() {
       } else {
         // Criar novo item
         try {
-          await axios.post(API_URL, { name, description });
+          await axios.post(API_URL, { ItemName, description });
           fetchItems();
           resetForm();
         } catch (error) {
@@ -48,7 +61,7 @@ export function ReceiptForm() {
     };
   
     const handleEdit = (item) => {
-      setName(item.name);
+      setItemName(item.ItemName);
       setDescription(item.description);
       setEditingId(item._id);
     };
@@ -63,22 +76,22 @@ export function ReceiptForm() {
     };
   
     const resetForm = () => {
-      setName('');
+      setItemName('');
       setDescription('');
       setEditingId(null);
     };
   
     return (
       <div className="App">
-        <h1>CRUD com React + MongoDB</h1>
+        <h1>Receipt Tracker</h1>
         
         <form onSubmit={handleSubmit}>
           <div>
-            <label>Nome:</label>
+            <label>Item Name:</label>
             <input
               type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={ItemName}
+              onChange={(e) => setItemName(e.target.value)}
               required
             />
           </div>
@@ -104,7 +117,7 @@ export function ReceiptForm() {
         <ul>
           {items.map((item) => (
             <li key={item._id}>
-              <strong>{item.name}</strong> - {item.description}
+              <strong>{item.ItemName}</strong> - {item.description}
               <button onClick={() => handleEdit(item)}>Editar</button>
               <button onClick={() => handleDelete(item._id)}>Deletar</button>
             </li>
