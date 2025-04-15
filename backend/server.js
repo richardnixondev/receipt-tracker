@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/receipt_t
 
 // Modelo
 const Item = mongoose.model('Item', {
-  name: String,
+  ItemName: String,
   description: String,
 });
 
@@ -40,7 +40,7 @@ app.get('/api/items', async (req, res) => {
 
 app.post('/api/items', async (req, res) => {
   const item = new Item({
-    name: req.body.name,
+    ItemName: req.body.ItemName,
     description: req.body.description,
   });
 
@@ -57,7 +57,7 @@ app.put('/api/items/:id', async (req, res) => {
     const updatedItem = await Item.findByIdAndUpdate(
       req.params.id,
       {
-        name: req.body.name,
+        ItemName: req.body.ItemName,
         description: req.body.description,
       },
       { new: true }
